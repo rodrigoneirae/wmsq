@@ -22,10 +22,7 @@ SECRET_KEY = 'django-insecure-rc^*w^w&6g9_(uvx#6s*bnt!w)l0rdi%!l7mv#y%uc&x%wo5pk
 DEBUG = False
 #DEBUG = True
 
-CORS_ORIGIN_WHITELIST = [
-    'localhost:8000',
-    # Otros orígenes permitidos...
-]
+
 
 LOGGING = {
     "version": 1,
@@ -152,6 +149,10 @@ if  DEBUG:
     }
 else:
     ALLOWED_HOSTS = ["*"]
+    CSRF_TRUSTED_ORIGINS = ['awms.up.railway.app']
+    CORS_ORIGIN_WHITELIST = [
+        'localhost:8000',
+    ]
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
