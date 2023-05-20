@@ -1,5 +1,6 @@
 asgiref==3.6.0
 Django==4.2.1
+django-cors-headers==4.0.0
 django-crum==0.7.9
 django-simple-history==3.3.0
 django-widget-tweaks==1.4.12

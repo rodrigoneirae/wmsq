@@ -58,8 +58,9 @@ PROJECT_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-'widget_tweaks',
-'simple_history',
+    'widget_tweaks',
+    'simple_history',
+    'corsheaders',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
@@ -74,6 +75,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'crum.CurrentRequestUserMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
@@ -150,9 +152,6 @@ if  DEBUG:
 else:
     ALLOWED_HOSTS = ["*"]
     CSRF_TRUSTED_ORIGINS = ['https://awms.up.railway.app']
-    CORS_ORIGIN_WHITELIST = [
-        'http://localhost:8000',
-    ]
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
