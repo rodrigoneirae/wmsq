@@ -1,0 +1,102 @@
+{% extends 'layouts/app/app.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0 font-size-18">Profile</h4>
+
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Contacts</a></li>
+                        <li class="breadcrumb-item active">Profile</li>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3"></div>
+        <div class="col-xl-6">
+            <div class="card overflow-hidden">
+                <div class="bg-primary bg-soft">
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="text-primary p-3">
+                                <h5 class="text-primary">Bienvenid@ Nuevamente !</h5>
+                                <p>Sat Inversierra</p>
+                            </div>
+                        </div>
+                        <div class="col-5 align-self-end">
+                            <img src="{% static 'assets/images/profile-img.png' %}" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="avatar-md profile-user-wid mb-4">
+                                <img src="{% static 'assets/images/users/avatar-1.jpg' %}" alt=""
+                                     class="img-thumbnail rounded-circle">
+                            </div>
+                            <h5 class="font-size-15 text-truncate">{{ request.user.username }}</h5>
+                            <p class="text-muted mb-0 text-truncate">{{ request.user.first_name }} {{ request.user.last_name }}</p>
+                            <p class="text-muted mb-0 text-truncate">{{ request.user.email }} </p>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="avatar-md profile-user-wid mb-4">
+
+                            </div>
+                            <h5 class="font-size-15 text-truncate">Grupo-Perfil</h5>
+                            <p class="text-muted mb-0 text-truncate">{{ request.session.group }}</p>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">Editar</h4>
+
+                    <p class="text-muted mb-4"></p>
+                    <div class="card">
+                <div class="card-body">
+                      {% if form.errors %}
+                          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                              <i class="mdi mdi-block-helper me-2"></i>
+                              {{ form.non_field_errors }}
+                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+                      {% endif %}
+                    <form method="post" action="." enctype="multipart/form-data">
+                            {% csrf_token %}
+                     <input type="hidden" name="action" value="{{ action }}">
+                    <div class="row">
+                        {% for field in form.visible_fields %}
+                         <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">{{ field.label }}:</label>
+                                    {{ field|add_class:'form-control'|attr:'autocomplete:off' }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+
+                        <div>
+                            <button type="submit" class="btn btn-primary w-md">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xl-3"></div>
+    </div>
+{% endblock %}

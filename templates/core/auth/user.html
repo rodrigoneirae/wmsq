@@ -1,0 +1,237 @@
+{% extends 'layouts/app/app.html' %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+{% block css %}
+    <link href="{% static 'assets/libs/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'assets/libs/select2/css/select2-bootstrap-5-theme.min.css' %}" rel="stylesheet"
+          type="text/css"/>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0 font-size-18">{{ title }}</h4>
+            </div>
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-pills animation-nav nav-justified gap-2 mb-3" role="tablist">
+                        <li class="nav-item waves-effect waves-light" role="presentation">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#data-basic" role="tab"
+                               aria-selected="false" tabindex="-1">
+                                {% trans 'Datos Básicos' %}
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content text-muted">
+
+                        <div class="tab-pane  active show" id="data-basic" role="tabpanel">
+                            <div class="row">
+                                 <div class="col-md-6 col-xl-12">
+                                <div class="card">
+
+                                    <div class="card-body">
+                                        <div class="live-preview">
+                                            <form method="POST" class="row g-3" id="basic-form">
+                                                <input type="hidden" class="form-control"
+                                                       id="action" name="action" value="{{ action }}">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label for="username"
+                                                                   class="form-label">{% trans 'Usuario' %}</label>
+                                                            <input type="text" class="form-control "
+                                                                   value=""
+                                                                   id="username" name="username">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label for="first_name"
+                                                                   class="form-label">{% trans 'Nombre' %}</label>
+                                                            <input type="text" class="form-control"
+                                                                   value=""
+                                                                   id="first_name" name="first_name"
+                                                                   required>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-2">
+                                                            <label for="last_name"
+                                                                   class="form-label">{% trans 'Apellidos' %}</label>
+                                                            <input type="text" class="form-control"
+                                                                   value=""
+                                                                   id="last_name" name="last_name" required>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label for="email"
+                                                                   class="form-label">{% trans 'Correo' %}</label>
+                                                            <input type="email" class="form-control"
+                                                                   id="email" name="email"
+                                                                   value="">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-2">
+                                                            <label for="language"
+                                                                   class="form-label">{% trans 'Idioma' %}</label>
+                                                            <select class="form-control " id="language" name="language">
+                                                                   {% for lang_code, lang_name in LANGUAGES %}
+                                                                       <option value="{{ lang_code }}">{{ lang_name }}</option>
+                                                                {% endfor %}
+                                                            </select>
+
+                                                        </div>
+                                                    </div>
+                                                            <div class="col-md-4">
+                                                        <div class="mb-2">
+                                                            <label for="password"
+                                                                   class="form-label">{% trans 'Contraseña' %}</label>
+                                                            <input type="password" class="form-control"
+                                                                   id="password" name="password"
+                                                                   value="">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-2">
+                                                            <div class="card border card-border-light">
+                                                                <div class="card-header align-items-center d-flex">
+                                                                    <h4 class="card-title mb-0 flex-grow-1">
+                                                                        {% trans 'Usuario APP' %}</h4>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+                                                                            <div class="mb-3">
+                                                                                <!-- Without labels Radios -->
+                                                                                <div class="form-check form-switch form-switch-lg">
+                                                                                    <input type="checkbox"
+                                                                                           class="form-check-input"
+                                                                                           id="user_app"
+                                                                                           name="user_app"
+                                                                                    >
+                                                                                    <label class="form-check-label"
+                                                                                           for="user_app">{% trans 'Acceso APP' %}</label>
+                                                                                </div>
+
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-2">
+                                                            <div class="card border card-border-light">
+                                                                <div class="card-header align-items-center d-flex">
+                                                                    <h4 class="card-title mb-0 flex-grow-1">
+                                                                        {% trans 'Usurio RF' %}</h4>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+                                                                            <div class="mb-3">
+                                                                                <!-- Without labels Radios -->
+                                                                                <div class="form-check form-switch form-switch-lg">
+                                                                                    <input type="checkbox"
+                                                                                           class="form-check-input"
+                                                                                           id="user_rf"
+                                                                                           name="user_rf"
+                                                                                    >
+                                                                                    <label class="form-check-label"
+                                                                                           for="user_rf">{% trans 'Acceso RF' %}</label>
+                                                                                </div>
+
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-2">
+                                                            <div class="card border card-border-light">
+                                                                <div class="card-header align-items-center d-flex">
+                                                                    <h4 class="card-title mb-0 flex-grow-1">
+                                                                        {% trans 'Usuario API' %}</h4>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="row">
+                                                                        <div class="col-12">
+                                                                            <div class="mb-3">
+                                                                                <!-- Without labels Radios -->
+                                                                                <div class="form-check form-switch form-switch-lg">
+                                                                                    <input type="checkbox"
+                                                                                           class="form-check-input"
+                                                                                           id="user_api"
+                                                                                           name="user_api"
+                                                                                    >
+                                                                                    <label class="form-check-label"
+                                                                                           for="user_api">{% trans 'Acceso API' %}</label>
+                                                                                </div>
+
+
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="col-lg-12">
+                                                        <div class="text-center">
+                                                            <button type="submit" class="btn btn-primary">
+                                                                {% trans 'Guardar' %}
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <!--end col-->
+                                                </div>
+                                                <!--end row-->
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div><!-- end card-body -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block cjs %}
+  <script>
+        var language = "{{ request.user.language }}";
+</script>
+{% endblock %}
+{% block js %}
+    <script src="{% static 'assets/libs/jquery/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'assets/libs/select2/js/select2.min.js' %}"></script>
+    <script src="{% static 'assets/js/modules/core/user_create.js' %}"></script>
+{% endblock %}
+
+

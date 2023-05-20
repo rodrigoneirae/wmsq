@@ -1,0 +1,462 @@
+{% extends 'layouts/app/app.html' %}
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+{% block css %}
+    <link href="{% static 'assets/libs/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'assets/libs/select2/css/select2-bootstrap-5-theme.min.css' %}" rel="stylesheet"
+          type="text/css"/>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0 font-size-18">{{ title }}</h4>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="col-xxl-12">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs nav-pills animation-nav nav-justified animate mb-3"
+                                    role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#tab-datos" role="tab"
+                                           aria-selected="false" style="" tabindex="-1">
+                                            {% trans 'Datos' %}
+                                        </a>
+                                    </li>
+                                    <li class="nav-item " role="presentation">
+                                        <a class="nav-link " data-bs-toggle="tab" href="#tab-asignaciones" role="tab"
+                                           aria-selected="true" tabindex="-1" style="">
+                                            {% trans 'Asignaciones' %}
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content  text-muted">
+                                    <div class="tab-pane" id="tab-datos" role="tabpanel">
+                                        <div class="col-xxl-12">
+
+
+                                            <div class="card-body">
+                                                <div class="live-preview">
+                                                    <form method="POST" class="g-3" id="basic-form">
+                                                        <input type="hidden" class="form-control"
+                                                               id="action" name="action" value="{{ action }}">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="mb-3">
+                                                                    <label for="username"
+                                                                           class="form-label">{% trans 'Usuario' %}</label>
+                                                                    <input type="text" class="form-control "
+                                                                           value="{{ user.username }}"
+                                                                           id="username" name="username" readonly>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="mb-3">
+                                                                    <label for="first_name"
+                                                                           class="form-label">{% trans 'Nombre' %}</label>
+                                                                    <input type="text" class="form-control"
+                                                                           value="{{ user.first_name }}"
+                                                                           id="first_name" name="first_name"
+                                                                           required>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="mb-2">
+                                                                    <label for="last_name"
+                                                                           class="form-label">{% trans 'Apellidos' %}</label>
+                                                                    <input type="text" class="form-control"
+                                                                           value="{{ user.last_name }}"
+                                                                           id="last_name" name="last_name" required>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="mb-3">
+                                                                    <label for="email"
+                                                                           class="form-label">{% trans 'Correo' %}</label>
+                                                                    <input type="email" class="form-control"
+                                                                           id="email" name="email"
+                                                                           value="{{ user.email }}">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="mb-2">
+                                                                    <label for="password"
+                                                                           class="form-label">{% trans 'Contraseña' %}</label>
+                                                                    <input type="password" class="form-control"
+                                                                           id="password" name="password"
+                                                                           value="{{ user.password }}">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="mb-2">
+                                                                    <label for="language"
+                                                                           class="form-label">{% trans 'Idioma' %}</label>
+                                                                    <select class="form-control " id="language"
+                                                                            name="language">
+                                                                        {% for lang_code, lang_name in LANGUAGES %}
+                                                                            <option
+                                                                                    {% if user.language == lang_code %}
+                                                                                        selected {% endif %}
+                                                                                        value="{{ lang_code }}">{{ lang_name }}</option>
+                                                                        {% endfor %}
+                                                                    </select>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="mb-2">
+                                                                    <div class="card border card-border-light">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <h4 class="card-title mb-0 flex-grow-1">
+                                                                                {% trans 'Usurio APP' %}</h4>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <div class="mb-3">
+                                                                                        <!-- Without labels Radios -->
+                                                                                        <div class="form-check form-switch form-switch-lg">
+                                                                                            <input type="checkbox"
+                                                                                                   class="form-check-input"
+                                                                                                   id="user_app"
+                                                                                                   name="user_app"
+                                                                                                    {% if user.is_app %}
+                                                                                                   checked="" {% endif %} >
+                                                                                            <label class="form-check-label"
+                                                                                                   for="user_rf">{% trans 'Acceso APP' %}</label>
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="mb-2">
+                                                                    <div class="card border card-border-light">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <h4 class="card-title mb-0 flex-grow-1">
+                                                                                {% trans 'Usurio RF' %}</h4>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <div class="mb-3">
+                                                                                        <!-- Without labels Radios -->
+                                                                                        <div class="form-check form-switch form-switch-lg">
+                                                                                            <input type="checkbox"
+                                                                                                   class="form-check-input"
+                                                                                                   id="user_rf"
+                                                                                                   name="user_rf"
+                                                                                                    {% if user.is_rf %}
+                                                                                                   checked="" {% endif %} >
+                                                                                            <label class="form-check-label"
+                                                                                                   for="user_rf">{% trans 'Acceso RF' %}</label>
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="mb-2">
+                                                                    <div class="card border card-border-light">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <h4 class="card-title mb-0 flex-grow-1">
+                                                                                {% trans 'Usuario API' %}</h4>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="row">
+                                                                                <div class="col-12">
+                                                                                    <div class="mb-3">
+                                                                                        <!-- Without labels Radios -->
+                                                                                        <div class="form-check form-switch form-switch-lg">
+                                                                                            <input type="checkbox"
+                                                                                                   class="form-check-input"
+                                                                                                   id="user_api"
+                                                                                                   name="user_api"
+                                                                                                    {% if user.is_api %}
+                                                                                                   checked="" {% endif %}>
+                                                                                            <label class="form-check-label"
+                                                                                                   for="user_api">{% trans 'Acceso API' %}</label>
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <div class="text-center">
+                                                                    <button type="submit" class="btn btn-primary">
+                                                                        {% trans 'Guardar' %}
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                        </div>
+                                                        <!--end row-->
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane " id="tab-asignaciones" role="tabpanel">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="card card-height-100">
+                                                    <div class="card-header border-bottom-dashed align-items-center d-flex">
+                                                        <h4 class="card-title mb-0 flex-grow-1"> {% trans 'Centros Logisticos' %}</h4>
+
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="list-group list-group-flush border-dashed mb-0">
+                                                            <li class="list-group-item px-0">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-shrink-0">
+                                                                        <div class="avatar-xs">
+                                                                            <div class="avatar-title bg-soft-success text-success fs-18 rounded">
+                                                                                <i class="ri-visa-fill"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="flex-grow-1 ms-2">
+                                                                        <h6 class="mt-2">Bitcoin</h6>
+                                                                    </div>
+                                                                    <div class="flex-shrink-0 text-start">
+                                                                        <div class="form-check form-switch">
+                                                                            <input class="form-check-input"
+                                                                                   type="checkbox" role="switch"
+                                                                                   id="flexSwitchCheckChecked"
+                                                                                   checked="">
+                                                                            <label class="form-check-label"
+                                                                                   for="flexSwitchCheckChecked"></label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="card card-height-100">
+                                                    <div class="card-header border-bottom-dashed align-items-center d-flex">
+                                                        <h4 class="card-title mb-0 flex-grow-1"> {% trans 'Zonas' %}</h4>
+
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="list-group list-group-flush border-dashed mb-0">
+                                                            <li class="list-group-item px-0">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-shrink-0">
+                                                                        <div class="avatar-xs">
+                                                                            <div class="avatar-title bg-soft-success text-success fs-18 rounded">
+                                                                                <i class="ri-visa-fill"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="flex-grow-1 ms-2">
+                                                                        <h6 class="mt-2">Bitcoin</h6>
+                                                                    </div>
+                                                                    <div class="flex-shrink-0 text-start">
+                                                                        <div class="form-check form-switch">
+                                                                            <input class="form-check-input"
+                                                                                   type="checkbox" role="switch"
+                                                                                   id="flexSwitchCheckChecked"
+                                                                                   checked="">
+                                                                            <label class="form-check-label"
+                                                                                   for="flexSwitchCheckChecked"></label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="card card-height-100">
+                                                    <div class="card-header border-bottom-dashed align-items-center d-flex">
+                                                        <h4 class="card-title mb-0 flex-grow-1"> {% trans 'Impresoras' %}</h4>
+
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="list-group list-group-flush border-dashed mb-0">
+                                                            <li class="list-group-item px-0">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-shrink-0">
+                                                                        <div class="avatar-xs">
+                                                                            <div class="avatar-title bg-soft-success text-success fs-18 rounded">
+                                                                                <i class="ri-visa-fill"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="flex-grow-1 ms-2">
+                                                                        <h6 class="mt-2">Bitcoin</h6>
+                                                                    </div>
+                                                                    <div class="flex-shrink-0 text-start">
+                                                                        <div class="form-check form-switch">
+                                                                            <input class="form-check-input"
+                                                                                   type="checkbox" role="switch"
+                                                                                   id="flexSwitchCheckChecked"
+                                                                                   checked="">
+                                                                            <label class="form-check-label"
+                                                                                   for="flexSwitchCheckChecked"></label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="card card-height-100">
+                                                    <div class="card-header border-bottom-dashed align-items-center d-flex">
+                                                        <h4 class="card-title mb-0 flex-grow-1"> {% trans 'Compañia' %}</h4>
+
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="list-group list-group-flush border-dashed mb-0">
+                                                            <li class="list-group-item px-0">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-shrink-0">
+                                                                        <input type="radio" class="btn-sm btn-check"
+                                                                               name="options" id="option1">
+                                                                      <label class="btn btn-xs btn-outline-secondary" for="option1">
+                                                                            D
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="flex-grow-1 ms-2">
+                                                                        <h6 class="mt-2">Bitcoin</h6>
+                                                                    </div>
+                                                                    <div class="flex-shrink-0 text-start">
+                                                                        <div class="form-check form-switch">
+                                                                            <input class="form-check-input"
+                                                                                   type="checkbox" role="switch"
+                                                                                   id="flexSwitchCheckChecked"
+                                                                                   checked="">
+                                                                            <label class="form-check-label"
+                                                                                   for="flexSwitchCheckChecked"></label>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                             <li class="list-group-item px-0">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-shrink-0">
+                                                                        <input type="radio" class="btn-sm btn-check"
+                                                                               name="options" id="option2">
+                                                                        <label class="btn btn-xs btn-outline-secondary" for="option2">
+                                                                            D
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="flex-grow-1 ms-2">
+                                                                        <h6 class="mt-2">Bitcoin</h6>
+                                                                    </div>
+                                                                    <div class="flex-shrink-0 text-start">
+                                                                        <div class="form-check form-switch">
+                                                                            <input class="form-check-input"
+                                                                                   type="checkbox" role="switch"
+                                                                                   id="flexSwitchCheckChecked"
+                                                                                   checked="">
+                                                                            <label class="form-check-label"
+                                                                                   for="flexSwitchCheckChecked"></label>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="card card-height-100">
+                                                    <div class="card-header border-bottom-dashed align-items-center d-flex">
+                                                        <h4 class="card-title mb-0 flex-grow-1"> {% trans 'Provedor' %}</h4>
+
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <ul class="list-group list-group-flush border-dashed mb-0">
+                                                            <li class="list-group-item px-0">
+                                                                <div class="d-flex">
+                                                                    <div class="flex-shrink-0">
+                                                                        <div class="avatar-xs">
+                                                                            <div class="avatar-title bg-soft-success text-success fs-18 rounded">
+                                                                                <i class="ri-visa-fill"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="flex-grow-1 ms-2">
+                                                                        <h6 class="mt-2">Bitcoin</h6>
+                                                                    </div>
+                                                                    <div class="flex-shrink-0 text-start">
+                                                                        <div class="form-check form-switch">
+                                                                            <input class="form-check-input"
+                                                                                   type="checkbox" role="switch"
+                                                                                   id="flexSwitchCheckChecked"
+                                                                                   checked="">
+                                                                            <label class="form-check-label"
+                                                                                   for="flexSwitchCheckChecked"></label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script src="{% static 'assets/libs/jquery/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'assets/libs/select2/js/select2.min.js' %}"></script>
+    <script src="{% static 'assets/js/modules/core/user_update.js' %}"></script>
+{% endblock %}
+{% block cjs %}
+
+{% endblock %}
+
