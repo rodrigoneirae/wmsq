@@ -149,9 +149,9 @@ if  DEBUG:
     }
 else:
     ALLOWED_HOSTS = ["*"]
-    CSRF_TRUSTED_ORIGINS = ['awms.up.railway.app']
+    CSRF_TRUSTED_ORIGINS = ['https://awms.up.railway.app']
     CORS_ORIGIN_WHITELIST = [
-        'localhost:8000',
+        'http://localhost:8000',
     ]
     DATABASES = {
         'default': {
