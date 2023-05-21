@@ -17,6 +17,7 @@ class IndexView(View):
                 password='1',
                 email='root@rodrigoneira.cl'
         )
+        print(DEBUG,'DEBUG')
         if not DEBUG:
             return TemplateResponse(request, 'core/portafolio/index.html')
         else:
