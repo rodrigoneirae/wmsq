@@ -20,7 +20,7 @@ SECRET_KEY = 'django-insecure-rc^*w^w&6g9_(uvx#6s*bnt!w)l0rdi%!l7mv#y%uc&x%wo5pk
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-#DEBUG = True
+# DEBUG = True
 
 
 
@@ -117,17 +117,29 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.0/topics/i18n/
+LANGUAGE_CODE = 'es'
+LANGUAGE_COOKIE_NAME='es'
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+LANGUAGES = [
+    ('en', ('English')),
+    ('es', ('Spanish')),
+]
+LOCALE_DOMAINS = (
+    'django',
+    'djangojs',
+)
+TIME_ZONE = 'America/Santiago'
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locales'),
+    os.path.join(BASE_DIR, "static", "assets", "js", "modules", "core"),
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -140,6 +152,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL='dashboard'
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
+AUTH_USER_MODEL = 'core.User'
+SESSION_EXPIRE_SECONDS = 36000
+SESSION_TIMEOUT_REDIRECT='login'
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 
 if  DEBUG:
     ALLOWED_HOSTS = []
