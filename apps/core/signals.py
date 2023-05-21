@@ -12,7 +12,7 @@ def add_history_ip_address(sender,request, instance, **kwargs):
     # print(request.META)
     ip_address = request.META.get('HTTP_X_FORWARDED_FOR') or request.META.get('HTTP_X_REAL_IP')
     if not ip_address:
-        ip_address = request.META.get('REMOTE_ADDR')
+        ip_address = request.META.get('REMOTE_ADDR').split(',')[0]
 
     print(ip_address,'ip')
     history_instance.ip_address = ip_address
