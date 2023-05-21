@@ -13,16 +13,3 @@ class CoreConfig(AppConfig):
             add_history_ip_address,
             sender=User
         )
-
-
-
-
-
-    # def ready(self):
-    #     from simple_history.tests.models \
-    #         import HistoricalPollWithExtraFields
-    #
-    #     pre_create_historical_record.connect(
-    #         add_history_ip_address,
-    #         sender=HistoricalPollWithExtraFields
-    #     )

@@ -17,22 +17,6 @@ class IndexView(View):
                 password='1',
                 email='root@rodrigoneira.cl'
         )
-
-        x_forwarded_for = request.META.get('REMOTE_ADDR')
-        print(x_forwarded_for)
-
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        print(s)
-        hostname = socket.getfqdn()
-        ip_add = socket.gethostbyname(hostname)
-        print(hostname,ip_add)
-        # s.bind((HOST, PORT))
-        # s.listen(1)
-        #     # Estas son las variables del cliente
-        # conn, addr = s.accept()
-        # clientIP = addr  # Aquí se guarda la IP del client
-        # print(clientIP)
-        # s.close()
         if not DEBUG:
             return TemplateResponse(request, 'core/portafolio/index.html')
         else:
