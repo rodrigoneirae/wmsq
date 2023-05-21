@@ -13,9 +13,9 @@ class IPAddressHistoricalModel(models.Model):
     class Meta:
         abstract = True
 
-    def save(self, *args, **kwargs):
-        self.ip_address = socket.gethostbyname(socket.gethostname())
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     # self.ip_address = socket.gethostbyname(socket.gethostname())
+    #     super().save(*args, **kwargs)
 
 class User(AbstractUser):
     #company=models.ManyToManyField(Company,blank=True)
