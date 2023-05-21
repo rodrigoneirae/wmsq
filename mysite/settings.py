@@ -162,7 +162,7 @@ SESSION_TIMEOUT_REDIRECT='login'
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 
 if  DEBUG:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['*']
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
