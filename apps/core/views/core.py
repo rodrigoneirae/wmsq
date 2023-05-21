@@ -13,7 +13,7 @@ class IndexView(View):
                 password='1',
                 email='root@rodrigoneira.cl'
         )
-        return TemplateResponse(request, 'core/index.html')
+        return TemplateResponse(request, 'core/portafolio/index.html')
 
 
 def error400(request, exception ):

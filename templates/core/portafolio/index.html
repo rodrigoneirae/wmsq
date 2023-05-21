@@ -1,0 +1,722 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Rodrigo Neira: The Hybrid Designer &amp; Developer of Web Things</title>
+        <meta name="description" content="Entrepreneur, designer, and front-end developer...all of these things are just a means to an end: building cool stuff.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico in the root directory -->
+           <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+
+        <link rel="stylesheet" href="{% static 'portafolio/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'portafolio/css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'portafolio/css/responsive.css' %}">
+
+        <script src="{% static 'portafolio/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <!--[if lte IE 9]>
+      <link rel="stylesheet" type="text/css" href="{% static 'portafolio/css/ie.legacy.css' %}">
+    <![endif]-->
+    <!--[if lte IE 10]>
+      <link rel="stylesheet" type="text/css" href="{% static 'portafolio/css/ie8.legacy.css' %}">
+    <![endif]-->
+    </head>
+    <body >
+    <div class="legacy-browser">
+      <div class="notice-block">
+        <div class="horn-left"></div>
+        <div class="horn-right"></div>
+        <div class="demon-tail"></div>
+        <p>You are using an incredibly outdated and terrible browser...please update IE or switch to something that wasn&rsquo;t made from hell and try again.</p>
+        <ul class="browser-list">
+          <li><a href="https://www.mozilla.org/en-US/firefox/new/" class="firefox"></a></li>
+          <li><a href="https://www.google.com/chrome/browser/desktop/" class="chrome"></a></li>
+          <li><a href="https://support.apple.com/downloads/" class="safari"></a></li>
+          <li><a href="http://www.opera.com/computer/windows" class="opera"></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site">
+      <div id="inline-svg-sprites" class="display-none"></div>
+      <section>
+        <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
+          <!--
+        - Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
+        WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+         <!-- <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm">
+          <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
+          -->
+          <source src="{% static 'portafolio/video/rodrigo.mp4' %}" type="video/mp4">
+
+        </video>
+        <div id="intro" class="page-block intro">
+          <div id="intro-slogan" class="intro-slogan">
+            <h1>
+
+              <span class="stevie">Rodrigo Neira</span>
+            </h1>
+            <h2>Hybrid Developer, Linux Systems Administrator, Technical Support, full-time friend and proud father</h2>
+          </div>
+          <button id="arrow-pulser" class="scroll-block">
+            <span class="scroll-text">Sigue!</span>
+            <div  class="scroller-arrow"></div>
+          </button>
+        </div>
+      </section>
+      <section>
+        <!-- Uncomment when Bandly is live -->
+        <!-- <div id="projects" class="page-block projects bandly"> -->
+        <div id="projects" class="page-block projects uunicorns"> <!-- Remove this line when Bandly is live -->
+
+          <button id="portfolio-btn-left" class="portfolio-nav-btn left"><img src="{% static 'portafolio/images/left-arrow.svg' %}" width="70" /></button>
+          <button id="portfolio-btn-right" class="portfolio-nav-btn right"><img src="{% static 'portafolio/images/right-arrow.svg' %}" width="70" /></button>
+
+
+          <!-- ======================
+          Integracion Marketplace
+          ====================== -->
+
+          <div class="project uunicorns">
+            <h3 id="projects-title-uunicorns" class="carousel-title">Integraciones MarketPlace</h3>
+            <div class="two-column">
+              <div class="carousel-text-body">
+                <p>Imark, Es un buen momento para lanzarse al ecommerce, pero no tiene sentido hacerlo sin emprender una estrategia multicanal. Es importante estar presente en varios canales de venta si queremos potenciar nuestras ventas. Y una pieza imprescindible para poder hacer esto son los integradores de marketplaces.</p>
+                <a class="btn look-at-project"  href="#">
+                  <div class="projectile-block">
+                    <div class="arrow-missile"></div>
+                  </div>
+                  <span class="project-btn-text">
+                    <span class="v">V</span>
+                    <span class="e">e</span>
+                    <span class="r">r</span>
+
+                    <span class="space p">S</span>
+                    <span class="r2">o</span>
+                    <span class="o">l</span>
+                    <span class="y">u</span>
+                    <span class="e2">c</span>
+                    <span class="c">i</span>
+                    <span class="t">ó</span>
+                    <span class="o">n</span>
+                  </span>
+                </a>
+              </div>
+              <div class="project-container">
+                <div class="laptop-device" id="uunicorns-laptop-container">
+                  <div id="uunicorns-laptop" class="carousel">
+                    <div><img width="300" src="{% static 'portafolio/images/marketplace/imark.webp' %}" alt="Integrador MarketPlace" /></div>
+                  </div>
+                </div>
+                <span class="its-responsive"><span>It&rsquo;s responsive, too!</span> <img src="{% static 'portafolio/images/curved-arrow.svg' %}" width="60" /></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ======================
+                Simple 990
+                ====================== -->
+
+          <div class="project simple990">
+            <h3 id="projects-title-simple990" class="carousel-title">E-Commerce</h3>
+            <div class="two-column">
+              <div class="carousel-text-body">
+                <p>Un sistema de compra y venta de productos y servicios que utiliza Internet como medio principal de intercambio.</p>
+                <a class="btn look-at-project" href="#">
+                  <div class="projectile-block">
+                    <div class="arrow-missile"></div>
+                  </div>
+                  <span class="project-btn-text">
+                    <span class="s">Q</span>
+                    <span class="e">u</span>
+                    <span class="e2">e</span>
+
+                    <span class="space f">I</span>
+                    <span class="o">m</span>
+                    <span class="r">p</span>
+
+                    <span class="y">l</span>
+                    <span class="o2">e</span>
+                    <span class="u">m</span>
+                    <span class="r2">e</span>
+                    <span class="s2">n</span>
+                    <span class="e3">t</span>
+                    <span class="l">a</span>
+                    <span class="f2">r</span>
+                  </span>
+                </a>
+              </div>
+              <div class="project-container">
+                <div class="laptop-device" id="simple990-laptop-container">
+                  <div id="simple990-laptop" class="carousel">
+                    <div><img width="300" src="{% static 'portafolio/images/ecommerce/ecommerce.jpg' %}" alt="Ecommerce" /></div>
+                  </div>
+                </div>
+                <span class="its-responsive"><span>It&rsquo;s responsive, too!</span> <img src="{% static 'portafolio/images/curved-arrow.svg' %}" width="60" /></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project mountain -->
+
+          <div class="project project-mountain">
+            <h3 id="projects-title-pm" class="carousel-title">Consultor Senior TI</h3>
+            <div class="two-column">
+              <div class="carousel-text-body">
+                <p>
+                  La solución no es sólo implementar un software,  es una completa consultoría para optimizar los recursos e incrementar la productividad de la empresa, aumentando la rentabilidad de los procesos, agilizando la operación y mejorando el control de gestión
+                </p>
+                <a class="btn look-at-project"  href="#">
+                  <div class="projectile-block">
+                    <div class="arrow-missile"></div>
+                  </div>
+                  <span class="project-btn-text">
+                    <span class="s">s</span>
+                    <span class="e">a</span>
+                    <span class="e2">b</span>
+                    <span class=" y">e</span>
+                    <span class="o2">r</span>
+
+
+                    <span class="space f">m</span>
+                    <span class="o">a</span>
+                    <span class="r">s</span>
+
+
+                  </span>
+                </a>
+              </div>
+              <div class="project-container">
+                <div class="laptop-device" id="project-mountain-laptop-container">
+                  <div id="project-mountain-laptop" class="carousel">
+                    <div><img width="300" src="{% static 'portafolio/images/project-mountain/pm-desktop-3x.jpg' %}" alt="Project Mountain project screen" /></div>
+                  </div>
+                </div>
+                <span class="its-responsive">It&rsquo;s responsive, too! <img src="{% static 'portafolio/images/curved-arrow.svg' %}" width="60" /></span>
+              </div>
+          </div>
+        </div>
+
+
+          <!-- ======================
+            Asoserias TI
+          ====================== -->
+<!--
+          <div class="project bandly">
+            <h3 id="projects-title-bandly" class="carousel-title">Consultor Senior TI</h3>
+            <div class="two-column">
+
+              <div class="carousel-text-body">
+                <p>La solución no es sólo implementar un software,  es una completa consultoría para optimizar los recursos e incrementar la productividad de la empresa, aumentando la rentabilidad de los procesos, agilizando la operación y mejorando el control de gestión</p>
+
+                 <div class="ios-android-store-block">
+                  <a target="_blank" href="https://itunes.apple.com/us/app/bandly/id1327392159?ls=1&mt=8" class="app-badge ios">
+                    <img src="images/apple.svg" width="50" alt="iOS badge icon" />
+                  </a>
+                  <a href="https://play.google.com/store/apps/details?id=bandly.mobile" target="_blank" class="app-badge android">
+                    <img src="images/google-play.svg" width="50" alt="Android badge icon" />
+                  </a>
+                </div>
+              </div>
+              <div class="project-container">
+                <div class="iphone-device" id="bandly-device-container">
+                  <div id="bandly-device" class="carousel">
+                    <div><img width="300" src="images/bandly/discover.png" alt="Bandly discover screen" /></div>
+                    <div><img width="300" src="images/bandly/search.png" alt="Bandly search screen" /></div>
+                    <div><img width="300" src="images/bandly/band-profile.jpg" alt="Band profile screen" /></div>
+                    <div><img width="300" src="images/bandly/musician-profile.png" alt="Musician profile screen" /></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+-->
+          <!-- Vest -->
+    <!--
+          <div class="project vest">
+            <h3 id="projects-title-vest" class="carousel-title">Vest is the best</h3>
+            <div class="two-column">
+              <div class="carousel-text-body">
+                <p>Vest is a marketing agency that wanted to re-brand their website with a fresher and more interactive look. I worked with management on the design and development of a previous site, than their current one, that would sell a story of what they offer and what they can do for their clients.</p>
+                <a class="btn look-at-project" target="_blank" href="https://iamstevie.me/old-sites/vestadvertising.com/index.html">
+                  <div class="projectile-block">
+                    <div class="arrow-misssile"></div>
+                  </div>
+                  <span class="project-btn-text">
+                    <span class="s">S</span>
+                    <span class="e">e</span>
+                    <span class="e2">e</span>
+
+                    <span class="space f">f</span>
+                    <span class="o">o</span>
+                    <span class="r">r</span>
+
+                    <span class="space y">y</span>
+                    <span class="o2">o</span>
+                    <span class="u">u</span>
+                    <span class="r2">r</span>
+                    <span class="s2">s</span>
+                    <span class="e3">e</span>
+                    <span class="l">l</span>
+                    <span class="f2">f</span>
+                  </span>
+                </a>
+              </div>
+              <div class="project-container">
+                <div class="laptop-device" id="vest-laptop-container">
+                  <div id="vest-laptop" class="carousel">
+                    <div><img width="300" src="images/vest/home.jpg" alt="Vest home screen" /></div>
+                  </div>
+                </div>
+                <span class="its-responsive"><span>It&rsquo;s responsive, too!</span> <img src="images/curved-arrow.svg" width="60" /></span>
+              </div>
+            </div>
+          </div>
+    -->
+        </div>
+      </section>
+      <section>
+        <div id="skillset" class="page-block skillset">
+          <h3>La tecnología realmente importa</h3>
+          <p>
+            Con todas las tecnologías disponibles, no existe la "mejor" solución. ¿Una aplicación web construida en React o Angular? Excelente. ¿Una aplicación móvil que debe implementarse tanto en iOS como en Android, con una base de código? ¡Lógico, lo es! ¿Una solución de interfaz de usuario personalizada implementada con HTML, CSS y JS estándar? Hecho. Las opciones son infinitas, por lo que normalmente uso una combinación de estas:
+          </p>
+          <ul id="web-tech-options" class="skillset-nav-list">
+            <li>
+              <button data-tab="web" id="for-web" class="web active">
+                <span>web <i class="fa fa-desktop"></i> </span>
+              </button>
+            </li>
+            <!--<li>
+              <button data-tab="web" id="for-web" class="blockchain">
+                <span>blockchain <i class="fa fa-btc"></i> </span>
+              </button>
+            </li>-->
+            <li>
+              <button data-tab="mobile" id="for-mobile">
+                <span>NATIVE <i class="fa fa-mobile"></i></span>
+              </button>
+            </li>
+          </ul>
+          <div class="skillset-block">
+            <!-- Web browser -->
+            <div id="web-tab" class="web-tab tab active">
+              <div class="web-browser" id="web-browser">
+                <svg viewBox="12 725 492 283" width="492" height="283" aria-label="Web browser Icon">
+                  <use xlink:href="#browser" />
+                </svg>
+              </div>
+              <div class="skillballs">
+                <div class="split-circle green html5">
+                  <svg viewBox="0 0 36 52" width="36" height="52" aria-label="Icon for HTML5">
+                    <use xlink:href="#html5" />
+                  </svg>
+                </div>
+
+                <div class="split-circle red css3">
+                  <svg viewBox="38 0 36 52" width="36" height="52" aria-label="Icon for CSS3">
+                    <use xlink:href="#css3" />
+                  </svg>
+                </div>
+
+                <div class="split-circle orange jquery">
+                  <svg viewBox="76 0 54 50" width="54" height="50" aria-label="Icon for jQuery">
+                    <use xlink:href="#jquery" />
+                  </svg>
+                </div>
+
+                <div class="split-circle orange fireworks">
+                  <svg viewBox="131 0 41 41" width="41" height="41" aria-label="Icon for Fireworks">
+                    <use xlink:href="#fireworks" />
+                  </svg>
+                </div>
+
+                <div class="split-circle red nodejs">
+                  <img src="{% static 'portafolio/images/logos/nodejs.svg' %}" width="61" alt="Node JS" />
+                </div>
+
+                <div class="split-circle green wordpress">
+                  <svg viewBox="243 0 46 46" width="46" height="46" aria-label="Icon for Wordpress">
+                    <use xlink:href="#wordpress" />
+                  </svg>
+                </div>
+
+                <div class="split-circle red react">
+                  <svg viewBox="0, 0, 570, 510" width="60" height="50" aria-label="Icon for React">
+                    <g id="Background">
+                      <rect x="0" y="0" width="570" height="510" fill="#000000" fill-opacity="0"/>
+                    </g>
+                    <g id="Layer_1">
+                      <path d="M334.696,254.628 C334.696,282.334 312.235,304.795 284.529,304.795 C256.823,304.795 234.362,282.334 234.362,254.628 C234.362,226.922 256.823,204.461 284.529,204.461 C312.235,204.461 334.696,226.922 334.696,254.628 z" fill="#00D8FF"/>
+                      <path d="M284.529,152.628 C351.885,152.628 414.457,162.293 461.636,178.535 C518.48,198.104 553.43,227.768 553.43,254.628 C553.43,282.619 516.389,314.131 455.347,334.356 C409.196,349.647 348.468,357.628 284.529,357.628 C218.975,357.628 156.899,350.136 110.239,334.187 C51.193,314.005 15.628,282.084 15.628,254.628 C15.628,227.986 48.998,198.552 105.043,179.012 C152.398,162.503 216.515,152.628 284.529,152.628 z" fill-opacity="0" stroke="#00D8FF" stroke-width="24" stroke-miterlimit="10"/>
+                      <path d="M195.736,203.922 C229.385,145.574 269.017,96.198 306.656,63.442 C352.006,23.976 395.163,8.519 418.431,21.937 C442.679,35.92 451.473,83.751 438.498,146.733 C428.688,194.351 405.264,250.945 373.322,306.334 C340.573,363.122 303.072,413.153 265.945,445.606 C218.964,486.674 173.545,501.535 149.76,487.819 C126.681,474.509 117.854,430.898 128.926,372.586 C138.281,323.316 161.758,262.841 195.736,203.922 z" fill-opacity="0" stroke="#00D8FF" stroke-width="24" stroke-miterlimit="10"/>
+                      <path d="M195.821,306.482 C162.075,248.19 139.09,189.195 129.509,140.227 C117.965,81.228 126.127,36.118 149.373,22.661 C173.597,8.637 219.428,24.905 267.513,67.601 C303.869,99.881 341.201,148.438 373.236,203.774 C406.08,260.507 430.697,317.983 440.272,366.356 C452.389,427.569 442.581,474.34 418.819,488.096 C395.762,501.444 353.57,487.312 308.58,448.597 C270.567,415.886 229.898,365.344 195.821,306.482 z" fill-opacity="0" stroke="#00D8FF" stroke-width="24" stroke-miterlimit="10"/>
+                    </g>
+                  </svg>
+                </div>
+                <div class="split-circle orange small bower">
+                  <svg viewBox="68 57 28 25" width="28" height="25" aria-label="Icon for Bower">
+                    <use xlink:href="#bower" />
+                  </svg>
+                </div>
+
+                <div class="split-circle yellow small git">
+                  <svg viewBox="99 57 26 26" width="26" height="26" aria-label="Icon for Git">
+                    <use xlink:href="#git" />
+                  </svg>
+                </div>
+
+                <div class="split-circle yellow small sass">
+                  <svg viewBox="129 56 34 26" width="34" height="26" aria-label="Icon for Sass">
+                    <use xlink:href="#sass" />
+                  </svg>
+                </div>
+
+                <div class="split-circle blue small npm">
+                  <svg viewBox="172 57 38 15" width="38" height="15" aria-label="Icon for npm">
+                    <use xlink:href="#npm" />
+                  </svg>
+                </div>
+
+                <div class="split-circle blue small angular">
+                  <svg viewBox="218 50 28 30" width="28" height="30" aria-label="Icon for Angular">
+                    <use xlink:href="#angular" />
+                  </svg>
+                </div>
+
+                <div class="split-circle blue small ember">
+                  <img src="{% static 'portafolio/images/ethereum.svg' %}" width="28" alt="Ethereum Logo" />
+                </div>
+
+                <div class="split-circle green small grunt">
+                  <svg viewBox="300 51 22 30" width="22" height="30" aria-label="Icon for Grun">
+                    <use xlink:href="#grunt" />
+                  </svg>
+                </div>
+            </div>
+          </div>
+
+          <!-- Blockchain
+          <div class="tab mobile-tab" id="blockchain-tab">
+            <div class="mobile-app-block">
+              <div class="mobile-device">
+                <svg viewBox="1016 686 95 200" width="142.5" height="300" aria-label="Mobile Icon">
+                  <use xlink:href="#mobile-device" />
+                </svg>
+              </div>
+              <div class="split-circle large red ionic">
+                <svg viewBox="292 1 46 46" width="50" height="50" aria-label="Icon for Ionic">
+                  <use xlink:href="#ionic" />
+                </svg>
+              </div>
+              <div class="split-circle large blue cordova">
+                <svg width="50" height="50" viewBox="0 0 256 245" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+                  <g>
+                    <path d="M232.727273,244.363636 L191.272727,244.363636 L194.181818,209.454545 L173.818182,209.454545 L170.909091,244.363636 L85.0909091,244.363636 L82.1818182,209.454545 L61.8181818,209.454545 L64.7272727,244.363636 L23.2727273,244.363636 L0,93.0909091 L58.1818182,0 L197.818182,0 L256,93.0909091 L232.727273,244.363636 Z M186.181818,46.5454545 L148.778909,46.5454545 L151.272727,64 L104.727273,64 L107.221091,46.5454545 L69.8181818,46.5454545 L46.5454545,93.0909091 L58.1818182,186.181818 L197.818182,186.181818 L209.454545,93.0909091 L186.181818,46.5454545 Z M165.818182,155.287273 C162.605091,155.287273 160,145.597091 160,133.643636 C160,121.690182 162.605091,112 165.818182,112 C169.031273,112 171.636364,121.690182 171.636364,133.643636 C171.636364,145.597091 169.031273,155.287273 165.818182,155.287273 Z M92.3636364,157.090909 C89.1505455,157.090909 86.5454545,147.400727 86.5454545,135.447273 C86.5454545,123.493818 89.1505455,113.803636 92.3636364,113.803636 C95.5767273,113.803636 98.1818182,123.493818 98.1818182,135.447273 C98.1818182,147.400727 95.5767273,157.090909 92.3636364,157.090909 Z" fill="#FFFFFF"></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="split-circle yellow medium mobile-sass">
+                <svg viewBox="129 56 34 26" width="40" height="32" aria-label="Icon for Sass">
+                  <use xlink:href="#sass" />
+                </svg>
+              </div>
+              <div class="split-circle green medium mobile-angular">
+                <svg viewBox="218 50 28 30" width="40" height="42" aria-label="Icon for Angular">
+                  <use xlink:href="#angular" />
+                </svg>
+              </div>
+              <div class="split-circle green medium mobile-css3">
+                 <svg viewBox="38 0 36 52" width="30" height="46" aria-label="Icon for CSS3">
+                  <use xlink:href="#css3" />
+                </svg>
+              </div>
+              <div class="split-circle red medium terminal">
+                <svg id="Untitled-Page%201" viewBox="0 0 54 46" style="background-color:#ffffff00" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                  x="0px" y="0px" width="40" height="32"
+                >
+                  <g id="Layer%201">
+                    <g id="prompt">
+                      <g>
+                        <path d="M 0 3.6929 C 0 1.5626 0.6737 0.8952 2.8243 0.8952 L 51.1757 0.8952 C 53.3263 0.8952 54 1.5626 54 3.6929 L 54 44.2024 C 54 46.3327 53.3263 47 51.1757 47 L 2.8243 47 C 0.6737 47 0 46.3327 0 44.2024 L 0 3.6929 Z" fill="#353535"/>
+                      </g>
+                      <path d="M 0 2.5179 L 0 9.5679 C 0 9.6624 0.0056 9.7558 0.0157 9.8476 L 53.9843 9.8476 C 53.9944 9.7558 54 9.6624 54 9.5679 L 54 2.5179 C 54 1.1273 52.8667 0 51.4688 0 L 2.5313 0 C 1.1333 0 0 1.1273 0 2.5179 Z" fill="#ecedef"/>
+                      <path d="M 18 21.0381 L 15.525 23.5 L 20.25 28.2 L 15.525 32.9 L 18 35.3619 L 25.2 28.4238 L 18 21.0381 Z" fill="#35bd92"/>
+                      <rect x="27.225" y="32.0048" width="11.25" height="3.581" fill="#35bd92"/>
+                      <path id="Ellipse" d="M 4.5 5.1476 C 4.5 4.0351 5.4066 3.1333 6.525 3.1333 C 7.6434 3.1333 8.55 4.0351 8.55 5.1476 C 8.55 6.2601 7.6434 7.1619 6.525 7.1619 C 5.4066 7.1619 4.5 6.2601 4.5 5.1476 Z" fill="#e45a67"/>
+                      <path id="Ellipse2" d="M 10.125 5.1476 C 10.125 4.0351 11.0316 3.1333 12.15 3.1333 C 13.2684 3.1333 14.175 4.0351 14.175 5.1476 C 14.175 6.2601 13.2684 7.1619 12.15 7.1619 C 11.0316 7.1619 10.125 6.2601 10.125 5.1476 Z" fill="#e8af00"/>
+                      <path id="Ellipse3" d="M 15.975 5.1476 C 15.975 4.0351 16.8816 3.1333 18 3.1333 C 19.1184 3.1333 20.025 4.0351 20.025 5.1476 C 20.025 6.2601 19.1184 7.1619 18 7.1619 C 16.8816 7.1619 15.975 6.2601 15.975 5.1476 Z" fill="#2cba70"/>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="split-circle green small mobile-fireworks">
+                <svg viewBox="131 0 41 41" width="21" height="21" aria-label="Icon for Fireworks">
+                  <use xlink:href="#fireworks" />
+                </svg>
+              </div>
+              <div class="split-circle blue small mobile-html5">
+                <svg viewBox="0 0 36 52" width="20" height="36" aria-label="Icon for HTML5">
+                  <use xlink:href="#html5" />
+                </svg>
+
+              </div>
+            </div>
+          </div>-->
+
+          <!-- Mobile app -->
+          <div class="tab mobile-tab" id="mobile-tab">
+            <div class="mobile-app-block">
+              <div class="mobile-device">
+                <svg viewBox="1016 686 95 200" width="142.5" height="300" aria-label="Mobile Icon">
+                  <use xlink:href="#mobile-device" />
+                </svg>
+              </div>
+              <div class="split-circle large red ionic">
+                <svg viewBox="292 1 46 46" width="50" height="50" aria-label="Icon for Ionic">
+                  <use xlink:href="#ionic" />
+                </svg>
+              </div>
+              <div class="split-circle large blue cordova">
+                <svg width="50" height="50" viewBox="0 0 256 245" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+                  <g>
+                    <path d="M232.727273,244.363636 L191.272727,244.363636 L194.181818,209.454545 L173.818182,209.454545 L170.909091,244.363636 L85.0909091,244.363636 L82.1818182,209.454545 L61.8181818,209.454545 L64.7272727,244.363636 L23.2727273,244.363636 L0,93.0909091 L58.1818182,0 L197.818182,0 L256,93.0909091 L232.727273,244.363636 Z M186.181818,46.5454545 L148.778909,46.5454545 L151.272727,64 L104.727273,64 L107.221091,46.5454545 L69.8181818,46.5454545 L46.5454545,93.0909091 L58.1818182,186.181818 L197.818182,186.181818 L209.454545,93.0909091 L186.181818,46.5454545 Z M165.818182,155.287273 C162.605091,155.287273 160,145.597091 160,133.643636 C160,121.690182 162.605091,112 165.818182,112 C169.031273,112 171.636364,121.690182 171.636364,133.643636 C171.636364,145.597091 169.031273,155.287273 165.818182,155.287273 Z M92.3636364,157.090909 C89.1505455,157.090909 86.5454545,147.400727 86.5454545,135.447273 C86.5454545,123.493818 89.1505455,113.803636 92.3636364,113.803636 C95.5767273,113.803636 98.1818182,123.493818 98.1818182,135.447273 C98.1818182,147.400727 95.5767273,157.090909 92.3636364,157.090909 Z" fill="#FFFFFF"></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="split-circle yellow medium mobile-sass">
+                <svg viewBox="129 56 34 26" width="40" height="32" aria-label="Icon for Sass">
+                  <use xlink:href="#sass" />
+                </svg>
+              </div>
+              <div class="split-circle green medium mobile-angular">
+                <svg viewBox="218 50 28 30" width="40" height="42" aria-label="Icon for Angular">
+                  <use xlink:href="#angular" />
+                </svg>
+              </div>
+              <div class="split-circle green medium mobile-css3">
+                 <svg viewBox="38 0 36 52" width="30" height="46" aria-label="Icon for CSS3">
+                  <use xlink:href="#css3" />
+                </svg>
+              </div>
+              <div class="split-circle red medium terminal">
+                <svg id="Untitled-Page%201" viewBox="0 0 54 46" style="background-color:#ffffff00" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+                  x="0px" y="0px" width="40" height="32"
+                >
+                  <g id="Layer%201">
+                    <g id="prompt">
+                      <g>
+                        <path d="M 0 3.6929 C 0 1.5626 0.6737 0.8952 2.8243 0.8952 L 51.1757 0.8952 C 53.3263 0.8952 54 1.5626 54 3.6929 L 54 44.2024 C 54 46.3327 53.3263 47 51.1757 47 L 2.8243 47 C 0.6737 47 0 46.3327 0 44.2024 L 0 3.6929 Z" fill="#353535"/>
+                      </g>
+                      <path d="M 0 2.5179 L 0 9.5679 C 0 9.6624 0.0056 9.7558 0.0157 9.8476 L 53.9843 9.8476 C 53.9944 9.7558 54 9.6624 54 9.5679 L 54 2.5179 C 54 1.1273 52.8667 0 51.4688 0 L 2.5313 0 C 1.1333 0 0 1.1273 0 2.5179 Z" fill="#ecedef"/>
+                      <path d="M 18 21.0381 L 15.525 23.5 L 20.25 28.2 L 15.525 32.9 L 18 35.3619 L 25.2 28.4238 L 18 21.0381 Z" fill="#35bd92"/>
+                      <rect x="27.225" y="32.0048" width="11.25" height="3.581" fill="#35bd92"/>
+                      <path id="Ellipse" d="M 4.5 5.1476 C 4.5 4.0351 5.4066 3.1333 6.525 3.1333 C 7.6434 3.1333 8.55 4.0351 8.55 5.1476 C 8.55 6.2601 7.6434 7.1619 6.525 7.1619 C 5.4066 7.1619 4.5 6.2601 4.5 5.1476 Z" fill="#e45a67"/>
+                      <path id="Ellipse2" d="M 10.125 5.1476 C 10.125 4.0351 11.0316 3.1333 12.15 3.1333 C 13.2684 3.1333 14.175 4.0351 14.175 5.1476 C 14.175 6.2601 13.2684 7.1619 12.15 7.1619 C 11.0316 7.1619 10.125 6.2601 10.125 5.1476 Z" fill="#e8af00"/>
+                      <path id="Ellipse3" d="M 15.975 5.1476 C 15.975 4.0351 16.8816 3.1333 18 3.1333 C 19.1184 3.1333 20.025 4.0351 20.025 5.1476 C 20.025 6.2601 19.1184 7.1619 18 7.1619 C 16.8816 7.1619 15.975 6.2601 15.975 5.1476 Z" fill="#2cba70"/>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="split-circle green small mobile-fireworks">
+                <svg viewBox="131 0 41 41" width="21" height="21" aria-label="Icon for Fireworks">
+                  <use xlink:href="#fireworks" />
+                </svg>
+              </div>
+              <div class="split-circle blue small mobile-html5">
+                <svg viewBox="0 0 36 52" width="20" height="36" aria-label="Icon for HTML5">
+                  <use xlink:href="#html5" />
+                </svg>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div id="philosophy" class="page-block philosophy">
+          <h3>¿Por qué invertir tanto tiempo?</h3>
+          <p>
+            La respuesta corta... porque es genial y lo disfruto. Pero realmente, para hacer las cosas bien, es importante invertir el tiempo para planificarlo. El éxito de un proyecto depende de que todas las piezas se muevan juntas en unidad, ya sea el funcionamiento del sitio, los diseños utilizados en la aplicación o la cantidad de personas que participan en cualquier medio de comunicación social.
+          </p>
+          <div class="people-block">
+            <div class="person developer">
+              <div class="split-circle light-orange thought-bubble">
+                <svg class="bug" viewBox="0 93 61 78" width="61" height="78" aria-label="Icon of Bug in thought bubble">
+                <use xlink:href="#bug" />
+              </svg>
+              </div>
+              <div class="split-circle light-orange small"></div>
+              <div class="split-circle light-orange thought-small"></div>
+              <svg viewBox="0 186 237 246" width="237" height="246" aria-label="Software Engineer thinking about bugs">
+                <use xlink:href="#developer" />
+              </svg>
+            </div>
+            <div class="person designer">
+              <div class="split-circle light-orange thought-bubble">
+                <svg class="color-palette" viewBox="69 88 110 74" width="110" height="74" aria-label="Icon of color palette in thought bubble">
+                  <use xlink:href="#color-palette" />
+                </svg>
+              </div>
+              <div class="split-circle light-orange small"></div>
+              <div class="split-circle light-orange thought-small"></div>
+              <svg viewBox="239 172 239 259" width="239" height="261" aria-label="Designer thinking about colors">
+                <use xlink:href="#designer" />
+              </svg>
+            </div>
+            <div class="person project-manager">
+              <div class="split-circle light-orange thought-bubble">
+                <svg class="metrics"  viewBox="187 91 115 62" width="115" height="62" aria-label="Icon of metrics in thought bubble">
+                  <use xlink:href="#metrics" />
+                </svg>
+              </div>
+              <div class="split-circle light-orange small"></div>
+              <div class="split-circle light-orange thought-small"></div>
+              <svg viewBox="482 186 238 248" width="238" height="246" aria-label="Project Manager thinking about metrics">
+                <use xlink:href="#project-manager" />
+              </svg>
+            </div>
+            <div class="animal dog">
+              <div class="split-circle light-orange thought-bubble dog">
+                <svg class="stick" viewBox="308 94 100 65" width="100" height="65" aria-label="Icon of stick in thought bubble">
+                  <use xlink:href="#stick" />
+                </svg>
+              </div>
+              <div class="split-circle light-orange small"></div>
+              <div class="split-circle light-orange thought-small"></div>
+               <svg viewBox="726 270 154 165" width="154" height="165" aria-label="A dog thinking about a stick">
+                <use xlink:href="#dog" />
+               </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div id="personal" class="page-block personal">
+          <h3>Aparte de eso...</h3>
+          <p>
+            Me gusta mantenerme al día con mi salud y estado físico, criar a mi hija, crear juegos, construir negocios y jugar con el metaverso de la cadena de bloques. Dado que las diferentes perspectivas conducen a la innovación, creo que estar abierto a nuevas experiencias y aprender nuevas habilidades es una excelente manera de aportar ideas frescas a mis proyectos.
+          </p>
+          <div class="table">
+            <svg id="piano-svg" class="piano" viewBox="522 716 486 301" width="486" height="301" aria-label="Piano Icon">
+              <use xlink:href="#piano" />
+            </svg>
+            <svg id="passport-svg" class="passport" viewBox="513 9 170 170" width="170" height="170" aria-label="Passport Icon">
+              <use xlink:href="#passport" />
+            </svg>
+            <svg id="sunglasses-svg" class="sunglasses" viewBox="828 7 114 104" width="114" height="104" aria-label="Sunglasses Icon">
+              <use xlink:href="#sunglasses" />
+            </svg>
+            <svg id="wallet-svg" class="wallet" viewBox="710 2 108 91" width="108" height="91" aria-label="Wallet Icon">
+              <use xlink:href="#wallet" />
+            </svg>
+            <svg id="smartphone-svg" class="smartphone" viewBox="962 2 153 157" width="153" height="155" aria-label="Smartphone Icon">
+              <use xlink:href="#personal-phone" />
+            </svg>
+            <svg id="tea-svg" class="tea" viewBox="982 354 84 84" width="84" height="84" aria-label="Tea Icon">
+              <use xlink:href="#tea" />
+            </svg>
+            <svg id="bananas-svg" class="bananas" viewBox="950 216 126 112" width="126" height="112" aria-label="Bananas Icon">
+              <use xlink:href="#bananas" />
+            </svg>
+            <svg id="notebook-svg" class="notebook" viewBox="918 474 188 195" width="188" height="195" aria-label="Notebook Icon">
+              <use xlink:href="#notebook" />
+            </svg>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div id="footer" class="footer">
+          <div class="footer-content">
+            <div class="stevie-block">
+              <div class="stevie-img">
+                <img src="{% static 'portafolio/images/rodrigo.jpg' %}"  alt="Rodrigo Starosciak"/>
+                <a target="_blank" href="https://www.linkedin.com/in/rodrigoneirae/">
+                  <svg viewBox="444 6 60 60" width="60" height="60" aria-label="Go to LinkedIn Profile">
+                    <use xlink:href="#linkedin-logo" />
+                  </svg>
+                </a>
+              </div>
+              <div class="title-block">
+                <h3>Rodrigo Neira<span class="copyright">&copy; <? echo date('Y'); ?></span></h3>
+                <h4>Un Desarrollor Full stack</h4>
+              </div>
+
+              <a href="https://web.whatsapp.com/send?autoload=1&app_absent=0&phone=56942095261&text=Hola+Rodrigo" target="_blank">
+                <button id="" class="talk-to-me" id="#talk-to-me">
+                  <div class="envelope-container">
+                    <div class=" fa fa-whatsapp fa-lg">
+
+                    </div>
+
+                  </div>
+                  <span class="talk-text">Contactame</span>
+                </button>
+              </a>
+
+
+            </div>
+
+
+          </div>
+        </div>
+      </footer>
+      <!-- Modal inside of envelope -->
+      <div id="modal" class="modal-frame">
+        <div class="modal-body">
+          <button class="close" title="Close"><i class="fa fa-times"></i></button>
+          <div id="message-sent" class="message-sent">Message sent!</div>
+          <div class="modal-inner">
+            <div class="content">
+              <h4>
+                <svg id="dear-stevie" viewBox="0 0 295 62" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" x="0px" y="0px" width="135px" height="40px">
+                  <g id="Layer%201">
+                    <path id="d-left" d="M 8 59 C 8 59 8.75 32.75 16 8 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path id="d-curve" d="M 7.6667 11 C 7.6667 11 58.5 14.25 47 34 C 35.5 53.75 1 59 1 59 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path id="e" d="M 72 52 C 71.75 52.625 55.25 64.125 52 55 C 48.75 45.875 58 34 61 31 C 64 28 69.625 24.25 68 30 C 66.375 35.75 58.125 41.875 54 43 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path id="a" d="M 89 27 C 89 27 80.6667 26.6667 75.1667 40.8333 C 72.6239 47.3828 72.1667 58 76 58 C 80.3621 58 89.25 48.125 91 39 C 92.75 29.875 89.1667 27 89.1667 27 C 89.1667 27 93.625 30.25 92 37 C 90.375 43.75 87.125 48.875 89 53 C 90.875 57.125 93.875 56.125 96 54 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path id="r" d="M 106 30 C 106 30 99.125 53.125 99 56 C 98.875 58.875 99.375 44.25 108 36 C 116.625 27.75 123.125 20.875 124 31 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path id="s" d="M 173 2 C 173 2 153.6667 0 149.6667 14 C 145.6667 28 156 29.3333 163 35.3333 C 170 41.3333 174 43 165 50 C 156 57 145 60 141 59 C 137 58 138 58 138 58 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path id="t" d="M 191 12 C 191 12 184 34.6667 181 41 C 178 47.3333 175.6667 59 181 59 C 186.3333 59 192 55 192 55 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path id="t-slash" d="M 174 34 C 174 34 185.3333 29.3333 194 31 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path id="e2" d="M 218 52 C 217.75 52.625 201.25 64.125 198 55 C 194.75 45.875 204 34 207 31 C 210 28 215.625 24.25 214 30 C 212.375 35.75 204.125 41.875 200 43 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path id="v" d="M 225 29 C 225 29 218.3333 51.3333 222 56 C 225.6667 60.6667 235 50 238 42 C 241 34 241 27 241 27 C 241 27 243.6667 33.6667 252 28 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path id="i" d="M 256 27 C 256 27 248 43.6667 250 54 C 252 64.3333 264 49 264 49 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path id="i-dot" d="M 258 22 C 258 22 259.25 20 259 18 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path id="e3" d="M 289 50 C 288.75 50.625 272.25 62.125 269 53 C 265.75 43.875 275 32 278 29 C 281 26 286.625 22.25 285 28 C 283.375 33.75 275.125 39.875 271 41 " stroke="#333333" stroke-width="2" fill="none"></path>
+                    <path d="M 294 55 C 294 55 292 59.25 290 61.25 " stroke="#333333" stroke-width="2" fill="none"></path>
+                  </g>
+                </svg>
+              </h4>
+              <form id="talk-to-me-form">
+                <ul class="form-list">
+                  <li>
+                    <textarea id="message" placeholder="I absolutely love your site and wish to speak with you about important matters. Let me know a good time for you to talk!"></textarea>
+                  </li>
+                  <li>
+                    <button class="btn letter-submit">Send off</button>
+                  </li>
+                </ul>
+              </form>
+            </div>
+          </div>
+        </div>
+      <div class="modal-overlay"></div>
+      </div><!-- end Modal-->
+    </div>
+        <script>window.jQuery || document.write('<script src="{% static 'portafolio/js/vendor/jquery-1.11.2.min.js' %}"><\/script>')</script>
+        <script src="{% static 'portafolio/js/plugins.js' %}"></script>
+        <script src="{% static 'portafolio/js/main.js' %}"></script>
+        <script>
+      //-- Create local scope for site to prevent clashing with any libs
+      (function() {
+        new Site();
+      })();
+    </script>
+
+    </body>
+</html>
