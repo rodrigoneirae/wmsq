@@ -151,7 +151,7 @@ if  DEBUG:
     }
 else:
     ALLOWED_HOSTS = ["*"]
-    CSRF_TRUSTED_ORIGINS = ['https://awms.up.railway.app','https://www.rodrigoneira.cl']
+    CSRF_TRUSTED_ORIGINS = ['https://awms.up.railway.app','https://www.rodrigoneira.cl','https://rodrigoneira.cl']
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
