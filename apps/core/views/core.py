@@ -17,8 +17,8 @@ class IndexView(View):
                 password='1',
                 email='root@rodrigoneira.cl'
         )
-        print(DEBUG,type(DEBUG),'DEBUG')
-        if not DEBUG:
+
+        if DEBUG == 'False':
             return TemplateResponse(request, 'core/portafolio/index.html')
         else:
             return HttpResponseRedirect(reverse_lazy('dashboard'))
