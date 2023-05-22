@@ -21,7 +21,8 @@ class IndexView(View):
         if DEBUG == 'False':
             return TemplateResponse(request, 'core/portafolio/index.html')
         else:
-            return HttpResponseRedirect(reverse_lazy('dashboard'))
+            return TemplateResponse(request, 'core/portafolio/index.html')
+            #return HttpResponseRedirect(reverse_lazy('dashboard'))
 
 class DashboradView(LoginRequiredMixin,TemplateView):
     template_name = 'core/index.html'

@@ -158,8 +158,15 @@ SESSION_EXPIRE_SECONDS = 36000
 SESSION_TIMEOUT_REDIRECT='login'
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 
+SMTP_HOST = os.environ['SMTP_HOST']
+SMTP_PORT = os.environ['SMTP_PORT']
+IMAP_HOST = os.environ['IMAP_HOST']
+IMAP_PORT = os.environ['IMAP_PORT']
+EMAIL_USER = os.environ['EMAIL_USER']
+EMAIL_PASSWORD = os.environ['EMAIL_PASSWORD']
+
 if  DEBUG == 'True':
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = []
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -181,3 +188,8 @@ else:
             'PORT': os.environ["PGPORT"],
         }
     }
+
+
+
+
+
